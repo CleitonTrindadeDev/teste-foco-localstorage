@@ -1,0 +1,18 @@
+main{
+  margin-top: 150px;
+}
+
+.container{
+    margin-top: 120px !important;
+    border-radius: 1rem;
+    box-shadow: 1px 2px 1px rgba(0, 0, 0, 0.26);
+  }
+  
+  input{
+    margin-bottom: 1.5rem;
+  }
+  
+  #salvar{
+    background-color: #5582eb !important;
+    border: none !important;
+  }

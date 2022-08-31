@@ -1,0 +1,7 @@
+li {
+    list-style-type: none;
+}
+#navTop{
+    background-color: #f3f4f9 !important;
+    box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.315) !important;
+}
