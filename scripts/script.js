@@ -1,11 +1,11 @@
 
 'use strict'
 
-//menu lateral -abrir e fechar
-
 $(document).ready(function () {
-    $('#tableReserva').DataTable();
+  $('#tableReserva').DataTable();
 });
+
+//menu lateral -abrir e fechar
 
 document.querySelector("#hamburguer").addEventListener("mouseover" , () =>{
     document.querySelector('.sidebar').classList.add('show-menu')
@@ -30,9 +30,11 @@ const lerReserva = () => getLocalStorage()
 
 //atualizar
 
+
+
 const atualizarReserva = (index, cliente)  => {
     const dadosCliente = lerReserva()
-    dadosCliente[index] = cliente
+    cliente.index = index
     setLocalStorage(dadosCliente)
 }
 //deletar
@@ -56,13 +58,13 @@ const salvarReserva = () =>{
         adultos: document.getElementById('adultos').value,
         criancas: document.getElementById('criancas').value
     }
-    const index = document.getElementById('checkin').dataset.index
+    const index = document.getElementById('nome').dataset.index
     if(index == 'new'){
         criarReserva(cliente)
         atualizarTable()
     }else{
         atualizarReserva(index, cliente)
-        atualizarTable()
+        atualizarTable()  
     }
     alert('Reserva concluida com sucesso')
     nome:nome.value=''
@@ -87,7 +89,9 @@ const criarRow = (cliente , index) =>{
     <td class="col-2 pt-4"><span>${cliente.criancas}</span></td>
 
     <td class="col-2">
+    <a href="#formulario">
     <button type="button" class="btn btn-dark m-1 editar" id="editar-${index}"><i class="fa fa-solid fa-pencil "></i></button>
+    </a>
     <button type="button" class="btn btn-dark excluir" data-toggle="modal" data-target="#excluir" id="excluir-${index}"><i class="fa fa-solid fa-trash "></i></button>
     </td>
     ` 
@@ -115,12 +119,12 @@ const preencherForm = (cliente) =>{
    document.getElementById('checkout').value = cliente.checkout 
    document.getElementById('adultos').value = cliente.adultos 
    document.getElementById('criancas').value = cliente.criancas
-   document.getElementById('checkin').dataset.index = cliente.index
+   document.getElementById('nome').dataset.index = cliente.index
 }
 
 const editarReserva = (index) => {
     const cliente = lerReserva()[index]
-    cliente.index = cliente 
+    cliente.index = cliente
     preencherForm(cliente)
 }
 
@@ -132,7 +136,7 @@ const editarDeletar = (event) => {
         if(action == 'editar'){
             editarReserva(index)
         }else{
-            const excluirComfirm = confirm("Realmente deseja excluir esta reserva ??")
+            const excluirComfirm = confirm(`Realmente deseja excluir esta reserva`)
             if(excluirComfirm ){
             deletarReserva(index)
             atualizarTable()
@@ -140,7 +144,6 @@ const editarDeletar = (event) => {
         }
     }
 }
-
 atualizarTable()
 
 

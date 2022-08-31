@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="css/form.css">
     <link rel="stylesheet" href="css/menu.css">
     <link rel="stylesheet" href="css/table.css">
+    <link rel="stylesheet" href="css/response.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.3/css/bootstrap.min.css">
@@ -52,11 +53,11 @@
       <ul>
             <li class="menu-item px-5 py-3  pt-5 d-flex">
                 <i class="fa fa-solid fa-home  p-2  fa-lg "></i>
-                <a href="index.html" class="menu-link " >Dashboard</a>
+                <a href="" class="menu-link " >Dashboard</a>
             </li>
             <li class="menu-item px-5 py-3 d-flex">
             <i class="fa fa-solid fa-plus p-2  fa-lg"></i>
-            <a href="formulario.html" class="menu-link">Nova Reserva</a>
+            <a href="" class="menu-link">Nova Reserva</a>
             </li>
             <li class="menu-item px-5 py-3 d-flex">
                 <i class="fa fa-solid fa-gear p-2 fa-lg"></i>
@@ -71,7 +72,7 @@
               <h2 class="my-4 border-bottom">Dados da reserva</h2>
                 <div class="row was-validated">
 
-                    <div class="col-4">
+                    <div class="col-4 field">
                     <label for="">Acomodação</label>
                     <select id="acomodacao" class="form-control"  required>
                         <option selected disabled value="">Selecione a acomodação</option>
@@ -79,19 +80,19 @@
                         <option>Quarto Duplo</option>
                     </select>
                     </div>
-                    <div class="col-2">
+                    <div class="col-2 field">
                     <label for="">Check-in</label>
-                    <input id="checkin" class="form-control" type="date" placeholder="Default input" data-index="new" required>
+                    <input id="checkin" class="form-control" type="date" placeholder="Default input" required>
                     </div>
-                    <div class="col-2">
+                    <div class="col-2 field">
                     <label for="">Check-out</label>
                     <input id="checkout" class="form-control" type="date" placeholder="Default input"  required>
                     </div>
-                    <div class="col-2">
+                    <div class="col-2 field">
                     <label for="">Hospedes(Adultos)</label>
                     <input id="adultos" class="form-control" type="number" placeholder="Nº Adultos" min="1" max="2"  required>
                     </div>
-                    <div class="col-2">
+                    <div class="col-2 field">
                     <label for="">Crianças</label>
                     <input id="criancas" class="form-control" type="number" min="0" max="2" placeholder="Nº Crianças"  required>
                     </div>
@@ -103,32 +104,32 @@
 
                     <div class="col-4 was-validated">
                     <label for="">Nome</label>
-                    <input  id="nome" class="form-control" type="text" placeholder="Digite seu nome" required>
+                    <input  id="nome" class="form-control field" type="text" placeholder="Digite seu nome"  data-index="new" required>
                     </div>
                     <div class="col-4">
                     <label for="">Sobrenome</label>
-                    <input class="form-control" type="text" placeholder="Digite seu sobrenome">
+                    <input class="form-control field" type="text" placeholder="Digite seu sobrenome">
                     </div>
                     <div class="col-4">
                     <label for="">CPF</label>
-                    <input class="form-control" type="text" placeholder="Digite seu CPF" id="cpf"  maxlength="14">
+                    <input class="form-control field" type="text" placeholder="Digite seu CPF" id="cpf"  maxlength="14">
                     </div>
             
                     <div class="col-3">
                     <label for="">Data de Nascimento</label>
-                    <input class="form-control" type="text" placeholder="09/10/1999">
+                    <input class="form-control field" type="text" placeholder="09/10/1999">
                     </div>
                     <div class="col-3">
                     <label for="">Telefone</label>
-                    <input class="form-control" type="text" placeholder="Digite seu telefone" id="tel" maxlength="13">
+                    <input class="form-control field" type="text" placeholder="Digite seu telefone" id="tel" maxlength="13">
                     </div>
                     <div class="col-3">
                     <label for="">Celular</label>
-                    <input class="form-control" type="text" placeholder="Digite seu celular" id="cel" maxlength="14">
+                    <input class="form-control field" type="text" placeholder="Digite seu celular" id="cel" maxlength="14">
                     </div>
                     <div class="col-3">
                     <label for="">E-mail</label>
-                    <input class="form-control" type="text" placeholder="Digite seu e-mail">
+                    <input class="form-control field" type="text" placeholder="Digite seu e-mail">
                     </div>
             
                 </div>
@@ -139,32 +140,32 @@
       
                     <div class="col-4">
                     <label for="">CEP</label>
-                    <input class="form-control" type="text" placeholder="00000-000">
+                    <input class="form-control field" type="text" placeholder="00000-000">
                     </div>
                     <div class="col-4">
                     <label for="">Cidade</label>
-                    <input class="form-control" type="text" placeholder="Qual cidade você reside?">
+                    <input class="form-control field" type="text" placeholder="Qual cidade você reside?">
                     </div>
                     <div class="col-4">
                     <label for="">Estado</label>
-                    <input class="form-control" type="text" placeholder="Qual cidade você reside?">
+                    <input class="form-control field" type="text" placeholder="Qual cidade você reside?">
                     </div>
             
                     <div class="col-3">
                     <label for="">Rua</label>
-                    <input class="form-control" type="text" placeholder="">
+                    <input class="form-control field" type="text" placeholder="">
                     </div>
                     <div class="col-3">
                     <label for="">Número</label>
-                    <input class="form-control" type="text" placeholder="">
+                    <input class="form-control field" type="text" placeholder="">
                     </div>
                     <div class="col-3">
                     <label for="">Bairro</label>
-                    <input class="form-control" type="text" placeholder="">
+                    <input class="form-control field" type="text" placeholder="">
                     </div>
                     <div class="col-3">
                     <label for="">Complemento</label>
-                    <input class="form-control" type="text" placeholder="">
+                    <input class="form-control field" type="text" placeholder="">
                     </div>
             
                     <div class="col d-flex justify-content-end">
