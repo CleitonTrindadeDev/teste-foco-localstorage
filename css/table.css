@@ -10,12 +10,15 @@
     color: black !important;
 }
 
+
 .table{
     border:1px solid rgba(0, 0, 0, 0.116);
     box-shadow: 1px 2px 1px rgba(0, 0, 0, 0.26);
+
 }
 #header{
     background-color: #dde4f7;
     font-size:100%;
     font-weight: bolder;
+    text-align: center;
 }

@@ -3,6 +3,9 @@
 
 //menu lateral -abrir e fechar
 
+$(document).ready(function () {
+    $('#tableReserva').DataTable();
+});
 
 document.querySelector("#hamburguer").addEventListener("mouseover" , () =>{
     document.querySelector('.sidebar').classList.add('show-menu')
@@ -39,9 +42,14 @@ const deletarReserva = (index) => {
     setLocalStorage(dadosCliente)
 }
 
-
+const validarCampo = () => {
+   return document.getElementById('formulario').reportValidity()
+}
 const salvarReserva = () =>{
+  if(validarCampo()){
+
     const cliente = {
+        nome: document.getElementById('nome').value,
         acomodacao: document.getElementById('acomodacao').value,
         checkin: document.getElementById('checkin').value,
         checkout: document.getElementById('checkout').value,
@@ -57,12 +65,13 @@ const salvarReserva = () =>{
         atualizarTable()
     }
     alert('Reserva concluida com sucesso')
+    nome:nome.value=''
     acomodacao:acomodacao.value=''
     checkin:checkin.value = ''
     checkout:checkout.value = ''
     adultos:adultos.value = ''
     criancas:criancas.value = ''
-    
+  }
 }
 
 //atualiza os dados na tabela 
@@ -70,7 +79,7 @@ const salvarReserva = () =>{
 const criarRow = (cliente , index) =>{
     const novaRow = document.createElement('tr')
     novaRow.innerHTML = `
-    
+    <td class="col-2 pt-4"><span>${cliente.nome}</span></td>
     <td class="col-2 pt-4"><span>${cliente.acomodacao}</span></td>
     <td class="col-2 pt-4"><span>${cliente.checkin}</span></td>
     <td class="col-2 pt-4"><span>${cliente.checkout}</span></td>
@@ -78,8 +87,8 @@ const criarRow = (cliente , index) =>{
     <td class="col-2 pt-4"><span>${cliente.criancas}</span></td>
 
     <td class="col-2">
-    <button type="button" class="btn btn-dark m-1 editar" id="editar-${index}"><i class="fa fa-solid fa-pencil fa-lg"></i></button>
-    <button type="button" class="btn btn-dark excluir" data-toggle="modal" data-target="#excluir" id="excluir-${index}"><i class="fa fa-solid fa-trash fa-lg"></i></button>
+    <button type="button" class="btn btn-dark m-1 editar" id="editar-${index}"><i class="fa fa-solid fa-pencil "></i></button>
+    <button type="button" class="btn btn-dark excluir" data-toggle="modal" data-target="#excluir" id="excluir-${index}"><i class="fa fa-solid fa-trash "></i></button>
     </td>
     ` 
     document.querySelector('#tableReserva > tbody').appendChild(novaRow)
@@ -100,6 +109,7 @@ const atualizarTable = () =>{
 //editar cliente
 
 const preencherForm = (cliente) =>{
+   document.getElementById('nome').value = cliente.nome
    document.getElementById('acomodacao').value = cliente.acomodacao
    document.getElementById('checkin').value = cliente.checkin 
    document.getElementById('checkout').value = cliente.checkout 
